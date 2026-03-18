@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoLearn - Challenges</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/challenges.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-seedling"></i>
+                <span>EcoLearn</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                <li class="nav-item"><a href="games.html" class="nav-link">Games & Quizzes</a></li>
+                <li class="nav-item"><a href="achievements.html" class="nav-link">Achievements</a></li>
+                <li class="nav-item"><a href="progress.html" class="nav-link">Progress</a></li>
+                <li class="nav-item mobile-profile">
+                    <a href="profile.html" class="nav-link profile-link">
+                        <i class="fas fa-user"></i>
+                        <span class="points-badge" id="nav-points">0</span>
+                    </a>
+                </li>
+                <li class="nav-item mobile-logout">
+                    <a href="#" class="nav-link logout-link" id="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </a>
+                </li>
+            </ul>
+            <div class="nav-actions">
+                <a href="profile.html" class="nav-link profile-link desktop-profile">
+                    <i class="fas fa-user"></i>
+                    <span class="points-badge" id="nav-points-desktop">0</span>
+                </a>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Layout -->
+    <div class="dashboard-container">
+        <!-- Mobile Sidebar Overlay -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="user-profile">
+                    <div class="profile-img" id="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="profile-info">
+                        <h3 id="user-name">Loading...</h3>
+                        <p id="user-level">Level 1 Eco Learner</p>
+                    </div>
+                    <button class="sidebar-close" id="sidebarClose">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="nav-item">
+                        <a href="dashboard.html">
+                            <i class="fas fa-home"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="games.html">
+                            <i class="fas fa-gamepad"></i>
+                            <span>Games & Quizzes</span>
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="challenges.html">
+                            <i class="fas fa-tasks"></i>
+                            <span>Challenges</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="achievements.html">
+                            <i class="fas fa-trophy"></i>
+                            <span>Achievements</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="progress.html">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Progress</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="community.html">
+                            <i class="fas fa-users"></i>
+                            <span>Community</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="settings.html">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="eco-points">
+                    <h4>Your Eco Points</h4>
+                    <div class="points-display" id="user-points">0</div>
+                </div>
+                <a href="rewards.html" class="btn btn-primary redeem-btn">Redeem Rewards</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Mobile Header -->
+            <div class="mobile-header">
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1>Challenges</h1>
+                <div class="mobile-points">
+                    <span id="mobile-points">0</span>
+                    <i class="fas fa-leaf"></i>
+                </div>
+            </div>
+
+            <!-- Challenges Header -->
+            <section class="page-header">
+                <div class="header-content">
+                    <h1>Daily Challenges</h1>
+                    <p>Complete challenges to earn Eco Points and level up your environmental impact</p>
+                </div>
+                <div class="header-stats">
+                    <div class="stat-card">
+                        <i class="fas fa-trophy"></i>
+                        <div>
+                            <h3 id="completed-challenges-count">0</h3>
+                            <p>Challenges Completed</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Challenge Categories -->
+            <section class="challenge-categories">
+                <div class="category-filters">
+                    <button class="filter-btn active" data-category="all">All Challenges</button>
+                    <button class="filter-btn" data-category="daily">Daily</button>
+                    <button class="filter-btn" data-category="weekly">Weekly</button>
+                    <button class="filter-btn" data-category="monthly">Monthly</button>
+                    <button class="filter-btn" data-category="special">Special Events</button>
+                </div>
+            </section>
+
+            <!-- Active Challenges -->
+            <section class="active-challenges">
+                <div class="section-header">
+                    <h2>Active Challenges</h2>
+                    <span class="challenge-timer" id="daily-reset-timer">Resets in: 12h 30m</span>
+                </div>
+                <div class="challenges-grid" id="active-challenges-grid">
+                    <!-- Challenges will be loaded dynamically -->
+                </div>
+            </section>
+
+            <!-- Upcoming Challenges -->
+            <section class="upcoming-challenges">
+                <div class="section-header">
+                    <h2>Upcoming Challenges</h2>
+                </div>
+                <div class="challenges-grid" id="upcoming-challenges-grid">
+                    <!-- Upcoming challenges will be loaded dynamically -->
+                </div>
+            </section>
+
+            <!-- Completed Challenges -->
+            <section class="completed-challenges">
+                <div class="section-header">
+                    <h2>Completed Challenges</h2>
+                    <a href="#" class="view-all">View History</a>
+                </div>
+                <div class="challenges-list" id="completed-challenges-list">
+                    <!-- Completed challenges will be loaded dynamically -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Challenge Completion Modal -->
+    <div class="modal" id="challengeCompletionModal">
+        <div class="modal-content">
+            <div class="completion-animation">
+                <i class="fas fa-trophy"></i>
+            </div>
+            <h2>Challenge Complete!</h2>
+            <p>You've successfully completed <span id="completed-challenge-name">the challenge</span></p>
+            <p>You've earned <strong><span id="challenge-points-earned">0</span> Eco Points</strong></p>
+            <div class="modal-buttons">
+                <button class="btn btn-primary" id="continueFromChallenge">Continue</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase App and Auth -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/challenges.js"></script>
+</body>
+</html>

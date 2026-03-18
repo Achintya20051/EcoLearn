@@ -1,0 +1,10 @@
+﻿git : 17:24:13.329993 exec-cmd.c:266          trace: resolved executable dir: 
+C:/Users/WORK/AppData/Local/Programs/Git/mingw64/bin
+At line:1 char:19
++ $env:GIT_TRACE=1; git add . 2>&1 | Out-File git-add-trace.txt -Encodi ...
++                   ~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (17:24:13.329993...Git/mingw64/bin 
+   :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+17:24:13.337990 git.c:476               trace: built-in: git add .
